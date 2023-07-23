@@ -36,6 +36,8 @@ void loop() {
     a = a / (it-1);
     t = 0;
 
+    Serial.print(i);
+    Serial.print(",");
     Serial.println(a);
     a = 0;
   }
