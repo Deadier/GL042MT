@@ -35,13 +35,21 @@ Voici un exemple de base de l'utilisation de la bibliothèque :
       delay(14);
     }
 
-## Fichiers supplémentaires
+## Fonctionnalités supplémentaires
 
-Ce dépôt contient également deux fichiers supplémentaires : `servoradar.ino` et `visuradar.pde`.
+Ce dépôt contient également deux fichiers supplémentaires qui étendent les fonctionnalités de la bibliothèque GL042MT : `servoradar.ino` et `visuradar.pde`.
+
+### Servo Radar (`servoradar.ino`)
 
 `servoradar.ino` est un script Arduino qui contrôle le capteur GL042MT monté sur un servo moteur pour balayer un arc de 180 degrés. Il envoie ensuite les données de distance et d'angle au PC via le port série.
 
+Le script utilise la bibliothèque Servo pour contrôler le servo moteur, et la bibliothèque GL042MT pour lire les données du capteur. Il effectue une boucle de 0 à 180 degrés, déplace le servo à chaque angle, lit la distance du capteur, et envoie ensuite l'angle et la distance au PC via le port série.
+
+### Visualisation du Radar (`visuradar.pde`)
+
 `visuradar.pde` est un script Processing qui lit les données du port série et les affiche sous forme de radar sonar. Il dessine un fond de radar avec des demi-cercles à des intervalles fixes pour représenter les distances, et affiche les obstacles détectés comme des points sur le radar.
+
+Le script utilise la bibliothèque Processing Serial pour lire les données du port série. Il attend que des données soient disponibles, les lit jusqu'à ce qu'il atteigne une nouvelle ligne, puis divise la chaîne de caractères en angle et distance. Il convertit ensuite ces valeurs en coordonnées polaires et les dessine sur le radar.
 
 ## Fonctions
 
